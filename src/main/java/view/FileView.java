@@ -3,6 +3,8 @@ package view;
 import basic.BasicMethods;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class FileView {
 
@@ -41,6 +43,18 @@ public class FileView {
         System.out.println("File not exists");
         System.out.print("**********************");
         BasicMethods.fileAndDirectoryInfo("C:/temp/some-file.txt");
+
+        System.out.println("\n**********************");
+        System.out.println("Creating a File");
+        System.out.print("**********************");
+        Files.createFile(Paths.get("C:/temp/temporaryFile.txt"));
+
+        System.out.println("\n**********************");
+        System.out.println("Removing a File");
+        System.out.print("**********************");
+        Files.deleteIfExists(Paths.get("C:/temp/temporaryFile.txt"));
+
+        System.out.println();
     }
 
 

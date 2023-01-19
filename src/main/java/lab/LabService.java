@@ -1,5 +1,6 @@
 package lab;
 
+import dto.Actor;
 import dto.ActorLine;
 
 import java.io.IOException;
@@ -14,6 +15,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class LabService {
+
+    private LabService(){}
+
     public static ActorLine toActorLine(final String[] line) {
         final String name = line[3];
         final String movie = line[4];
@@ -46,5 +50,20 @@ public class LabService {
                 .collect(Collectors.toList());
 
         Files.write(pathToSave, listOfActress);
+    }
+
+    public static List<Actor> readFile(Path filePath) throws IOException {
+        try (var fileStream = Files.lines(filePath)) {
+            return fileStream
+                    .skip(1)
+                    .map(line -> line.split(";"))
+                    .map(col -> new Actor(
+                            Integer.parseInt(col[0].trim()),
+                            Integer.parseInt(col[1].trim()),
+                            Integer.parseInt(col[2].trim()),
+                            col[3].trim(),
+                            col[4].trim()))
+                    .collect(Collectors.toList());
+        }
     }
 }

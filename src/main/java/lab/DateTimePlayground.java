@@ -66,6 +66,11 @@ public class DateTimePlayground {
         //buildingADateTime();
         //parsingADateTime(aniversario);
         //someOperationsUsingDates();
-        usingTimeZonesWithDateTime();
+        //usingTimeZonesWithDateTime();
+
+        ZoneId zone = ZoneId.systemDefault();
+        System.out.println(zone);
+        System.out.println(LocalDateTime.now());
+        System.out.println(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
     }
 }

@@ -26,6 +26,9 @@ public class DateTimePlayground {
 
         System.out.println("FUSO: " + zonedDateTimeBSB.withZoneSameInstant(ZoneId.of("Europe/Tallinn")));
         System.out.println("FUSO: " + zonedDateTimePT.withZoneSameInstant(ZoneId.of("America/Sao_Paulo")));
+
+        var x = zonedDateTimeBSB.withZoneSameInstant(ZoneId.of("Europe/Tallinn"));
+        System.out.println(x.toLocalDateTime());
     }
 
     private static void parsingADateTime(LocalDateTime aniversario) {
@@ -63,6 +66,6 @@ public class DateTimePlayground {
         //buildingADateTime();
         //parsingADateTime(aniversario);
         //someOperationsUsingDates();
-        //usingTimeZonesWithDateTime();
+        usingTimeZonesWithDateTime();
     }
 }
